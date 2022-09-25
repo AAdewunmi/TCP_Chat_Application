@@ -17,4 +17,9 @@ public class Server {
     private boolean keepGoing;
     private final String notif = " *** ";
 
+    public Server(int port) {
+        this.al = new ArrayList<ClientThread>();
+        this.sdf = new SimpleDateFormat("HH:mm:ss");
+        this.port = port;
+    }
 }
