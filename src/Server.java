@@ -1,10 +1,20 @@
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+
 /**
  * @author Adrian Adewunmi
- * @date 25 Sept 2022
+ * {@code @date} 25 Sept 2022
  * @description Server Class
  */
 
 
 public class Server {
+
+    private static int uniqueId;
+    private ArrayList<ClientThread> al;
+    private SimpleDateFormat sdf;
+    private int port;
+    private boolean keepGoing;
+    private final String notif = " *** ";
 
 }
