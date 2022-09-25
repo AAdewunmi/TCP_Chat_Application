@@ -3,7 +3,7 @@
 
 ## What is the project?
 
-TCP/IP Chat Application
+This is a GUI based Chat Application built using Java 9, Java Swing and ngrok 
 
 
 ## Tech Stack
