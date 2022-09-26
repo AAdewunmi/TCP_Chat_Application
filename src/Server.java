@@ -1,5 +1,8 @@
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * @author Adrian Adewunmi
@@ -21,5 +24,26 @@ public class Server {
         this.al = new ArrayList<ClientThread>();
         this.sdf = new SimpleDateFormat("HH:mm:ss");
         this.port = port;
+    }
+
+    // Implement start() method for starting server process
+    public void start(){
+        keepGoing = true;
+        try {
+            ServerSocket serverSocket = new ServerSocket(port);
+            while(keepGoing){
+                display("Server waiting for Clients on port " + port + ".");
+                Socket socket = serverSocket.accept();
+                if (!keepGoing) {
+                    break;
+                    ClientThread thread =
+                }
+            }
+        }
+    }
+
+    private void display(String message) {
+        String time = sdf.format(new Date()) + " " + message;
+        System.out.println(time);
     }
 }
