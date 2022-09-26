@@ -36,7 +36,9 @@ public class Server {
                 Socket socket = serverSocket.accept();
                 if (!keepGoing) {
                     break;
-                    ClientThread thread =
+                    ClientThread thread = new ClientThread(socket);
+                    al.add(thread);
+                    thread.start();
                 }
             }
         }
