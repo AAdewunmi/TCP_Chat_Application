@@ -161,7 +161,7 @@ public class Server {
         server.start();
     }
 
-    /*public class ClientThread extends Thread{
+    public class ClientThread extends Thread{
         Socket socket;
         ObjectInputStream sInput;
         ObjectOutputStream sOutput;
@@ -186,6 +186,14 @@ public class Server {
                 e.printStackTrace();
             }
         }
-    }*/
+
+        public String getUsername() {
+            return username;
+        }
+
+        public void setUsername(String username) {
+            this.username = username;
+        }
+    }// End of ClientThread Class
 
 }// End of Server Class
