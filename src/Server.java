@@ -258,6 +258,21 @@ public class Server {
                 e.printStackTrace();
             }
         }
+
+        private boolean writeMsg(String msg) {
+            if(!socket.isConnected()) {
+                close();
+                return false;
+            }
+            try {
+                sOutput.writeObject(msg);
+            }
+            catch(IOException e) {
+                display(notif + "Error sending message to " + username + notif);
+                display(e.toString());
+            }
+            return true;
+        }
     }// End of ClientThread Class
 
 }// End of Server Class
