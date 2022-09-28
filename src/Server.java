@@ -1,4 +1,3 @@
-import java.awt.image.ImageObserver;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -11,16 +10,16 @@ import java.util.Date;
 /**
  * @author Adrian Adewunmi
  * {@code @date} 25 Sept 2022
- * @description Server Class
+ * {@code @description} Server Class
  */
 
 
 public class Server {
 
     int uniqueId;
-    private ArrayList<ClientThread> al;
-    private SimpleDateFormat sdf;
-    private int port;
+    private final ArrayList<ClientThread> al;
+    private final SimpleDateFormat sdf;
+    private final int port;
     private boolean keepGoing;
     private final String notif = " *** ";
 
@@ -37,27 +36,25 @@ public class Server {
             while(keepGoing){
                 display("Server waiting for Clients on port " + port + ".");
                 Socket socket = serverSocket.accept();
-                if (!keepGoing) {
+                if (!keepGoing)
                     break;
                 ClientThread thread = new ClientThread(socket);
                 al.add(thread);
                 thread.start();
-                }
-                try{
-                    serverSocket.close();
-                    for (int i = 0; i < al.size(); i++) {
-                        ClientThread tc = al.get(i);
-                        try{
-                            tc.sInput.close();
-                            tc.sOutput.close();
-                            tc.socket.close();
-                        }catch(IOException ioE){
-                            ioE.printStackTrace();
-                        }
+            }
+            try{
+                serverSocket.close();
+                for (ClientThread tc : al) {
+                    try {
+                        tc.sInput.close();
+                        tc.sOutput.close();
+                        tc.socket.close();
+                    } catch (IOException ioE) {
+                        ioE.printStackTrace();
                     }
-                }catch(Exception e){
-                    display("Exception closing the server and clients: " + e);
                 }
+            }catch(Exception e){
+                display("Exception closing the server and clients: " + e);
             }
         }catch (IOException e){
             String message = sdf.format(new Date() + " Exception on new ServerSocket: " + e + "\n");
@@ -82,15 +79,11 @@ public class Server {
     private synchronized boolean broadcast(String message){
         String time = sdf.format(new Date());
         String[] w = message.split(" ", 3);
-        boolean isPrivate = false;
+        boolean isPrivate = w[1].charAt(0) == '@';
 
-        if (w[1].charAt(0) == '@') {
-            isPrivate = true;
-        }
-
-        if (isPrivate == true)
+        if (isPrivate)
         {
-            String tocheck = w[1].substring(1, w[1].length());
+            String tocheck = w[1].substring(1);
             message = w[0] + w[2];
             String messageLf = time + " " + message + "\n";
             boolean found = false;
@@ -107,9 +100,8 @@ public class Server {
                     break;
                 }
             }
-            if (found != true) {
-                return false;
-            }
+
+            return found;
         }
         else
         {
@@ -186,15 +178,12 @@ public class Server {
             }catch(ClassNotFoundException e){
                 e.printStackTrace();
             }
-            date = new Date().toString() + "\n";
+            // date = new Date().toString() + "\n";
+            date = new Date() + "\n";
         }
 
         public String getUsername() {
             return username;
-        }
-
-        public void setUsername(String username) {
-            this.username = username;
         }
 
         public void run(){
@@ -213,7 +202,7 @@ public class Server {
                 switch (cm.getType()){
                     case ChatMessage.MESSAGE:
                         boolean confirmation = broadcast(username + ": " + message);
-                        if (confirmation == false) {
+                        if (!confirmation) {
                             String msg = notif + "Sorry. No such user exists. " + notif;
                             writeMsg(msg);
                         }
