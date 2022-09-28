@@ -73,6 +73,58 @@ public class Server {
         }
     }
 
+    private void display(String message) {
+        String time = sdf.format(new Date()) + " " + message;
+        System.out.println(time);
+    }
+
+    private synchronized boolean broadcast(String message){
+        String time = sdf.format(new Date());
+        String[] w = message.split(" ", 3);
+        boolean isPrivate = false;
+
+        if (w[1].charAt(0) == '@') {
+            isPrivate = true;
+        }
+
+        if (isPrivate == true)
+        {
+            String tocheck = w[1].substring(1, w[1].length());
+            message = w[0] + w[2];
+            String messageLf = time + " " + message + "\n";
+            boolean found = false;
+
+            for (int y = al.size(); --y >= 0; ) {
+                ClientThread ct1 = al.get(y);
+                String check = ct1.getUsername();
+                if (check.equals(tocheck)) {
+                    if (!ct1.writeMsg(messageLf)) {
+                        al.remove(y);
+                        display("Disconnected Client " + ct1.username + " removed from list.");
+                    }
+                    found = true;
+                    break;
+                }
+            }
+            if (found != true) {
+                return false;
+            }
+        }
+        else
+        {
+            String messageLf = time + " " + message + "\n";
+            System.out.println(messageLf);
+            for (int i = al.size(); --i >= 0; ) {
+                ClientThread ct = al.get(i);
+                if (!ct.writeMsg(messageLf)) {
+                    al.remove(i);
+                    display("Disconnected Client " + ct.username + " removed from list");
+                }
+            }
+        }
+        return true;
+    }
+
     /*public class ClientThread extends Thread{
         Socket socket;
         ObjectInputStream sInput;
@@ -100,10 +152,4 @@ public class Server {
         }
     }*/
 
-    private void display(String message) {
-        String time = sdf.format(new Date()) + " " + message;
-        System.out.println(time);
-    }
-
-
-}
+}// End of Server Class
