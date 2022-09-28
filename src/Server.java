@@ -39,14 +39,14 @@ public class Server {
                 Socket socket = serverSocket.accept();
                 if (!keepGoing) {
                     break;
-                    ClientThread thread = new ClientThread(socket);
-                    al.add(thread);
-                    thread.start();
+                ClientThread thread = new ClientThread(socket);
+                al.add(thread);
+                thread.start();
                 }
                 try{
                     serverSocket.close();
                     for (int i = 0; i < al.size(); i++) {
-                        ClientThead tc = al.get(i);
+                        ClientThread tc = al.get(i);
                         try{
                             tc.sInput.close();
                             tc.sOutput.close();
@@ -233,6 +233,30 @@ public class Server {
             }
             remove(id);
             close();
+        }
+
+        private void close(){
+            try{
+                if (sOutput != null) {
+                    sOutput.close();
+                }
+            } catch(Exception e){
+                e.printStackTrace();
+            }
+            try{
+                if (sInput!= null) {
+                    sInput.close();
+                }
+            } catch(Exception e){
+                e.printStackTrace();
+            }
+            try{
+                if (socket!= null) {
+                    socket.close();
+                }
+            } catch(Exception e){
+                e.printStackTrace();
+            }
         }
     }// End of ClientThread Class
 
