@@ -64,6 +64,15 @@ public class Server {
         }
     }
 
+    protected void stop(){
+        keepGoing = false;
+        try{
+            new Socket("localhost", port);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
     /*public class ClientThread extends Thread{
         Socket socket;
         ObjectInputStream sInput;
