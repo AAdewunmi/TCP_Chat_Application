@@ -1,3 +1,4 @@
+import java.awt.image.ImageObserver;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -136,6 +137,28 @@ public class Server {
             }
         }
         broadcast(notif + disconnectedClient + " has left the chat room." + notif);
+    }
+
+    public static void main(String[] args) {
+        int portNumber = 1500;
+        switch (args.length){
+            case 1:
+                try{
+                    portNumber = Integer.parseInt(args[0]);
+                }catch(Exception e){
+                    System.out.println("Invalid port number.");
+                    System.out.println("Usage is: > Java Server [portNumber]");
+                    e.printStackTrace();
+                    return;
+                }
+            case 0:
+                break;
+            default:
+                System.out.println("Usage is: > Java Server [portNumber]");
+                return;
+        }
+        Server server = new Server(portNumber);
+        server.start();
     }
 
     /*public class ClientThread extends Thread{
