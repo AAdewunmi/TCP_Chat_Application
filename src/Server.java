@@ -173,7 +173,7 @@ public class Server {
         public ClientThread(Socket socket) {
             this.id = ++uniqueId;
             this.socket = socket;
-            System.out.println("Thread trying to create Object ");
+            System.out.println("Thread trying to create Object Object Input/Output Streams");
             try{
                 this.sOutput = new ObjectOutputStream(socket.getOutputStream());
                 this.sInput = new ObjectInputStream(socket.getInputStream());
@@ -181,10 +181,12 @@ public class Server {
                 broadcast(notif + username + " has joined the chatroom. " + notif);
             }catch(IOException e){
                 display("Exception creating new Input / Output Streams: " + e);
+                e.printStackTrace();
                 return;
             }catch(ClassNotFoundException e){
                 e.printStackTrace();
             }
+            date = new Date().toString() + "\n";
         }
 
         public String getUsername() {
@@ -193,6 +195,44 @@ public class Server {
 
         public void setUsername(String username) {
             this.username = username;
+        }
+
+        public void run(){
+            boolean keepGoing = true;
+            while(keepGoing){
+                try{
+                    cm = (ChatMessage) sInput.readObject();
+                }catch(IOException e){
+                    display(username + " Exception reading Streams: " + e);
+                    break;
+                }catch(ClassNotFoundException e2){
+                    e2.printStackTrace();
+                    break;
+                }
+                String message = cm.getMessage();
+                switch (cm.getType()){
+                    case ChatMessage.MESSAGE:
+                        boolean confirmation = broadcast(username + ": " + message);
+                        if (confirmation == false) {
+                            String msg = notif + "Sorry. No such user exists. " + notif;
+                            writeMsg(msg);
+                        }
+                        break;
+                    case ChatMessage.LOGOUT:
+                        display(username + " disconnected with a LOGOUT message.");
+                        keepGoing = false;
+                        break;
+                    case ChatMessage.WHOISIN:
+                        writeMsg("List of the users connected at " + sdf.format(new Date()) + "\n");
+                        for (int i = 0; i < al.size(); i++) {
+                            ClientThread ct = al.get(i);
+                            writeMsg((i + 1) + ") " + ct.username + " since " + ct.date);
+                        }
+                        break;
+                }
+            }
+            remove(id);
+            close();
         }
     }// End of ClientThread Class
 
