@@ -16,4 +16,11 @@ public class ChatMessage implements Serializable {
         this.message = message;
     }
 
+    public int type() {
+        return type;
+    }
+
+    public String message() {
+        return message;
+    }
 }
