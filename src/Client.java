@@ -13,12 +13,20 @@ public class Client {
     private ObjectInputStream sInput;
     private ObjectOutputStream sOutput;
     private Socket socket;
-    private String server, username;
+    private String server, userName;
     private int port;
 
-    public Client(String server, String username, int port) {
+    public Client(String server, String userName, int port) {
         this.server = server;
-        this.username = username;
+        this.userName = userName;
         this.port = port;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }
