@@ -64,10 +64,11 @@ public class Client {
         System.out.println(message);
     }
 
-    void sendMessage(ChatMessage message){
-        try{
+    void sendMessage(ChatMessage message) {
+        try {
             sOutput.writeObject(message);
-        }catch(IOException e){
+        }
+        catch(IOException e) {
             display("Exception writing to server: " + e);
         }
     }
