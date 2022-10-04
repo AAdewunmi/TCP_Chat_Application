@@ -72,4 +72,24 @@ public class Client {
             display("Exception writing to server: " + e);
         }
     }
+
+    private void disconnect(){
+        try{
+            if (sInput != null) {
+                sInput.close();
+            }
+        }catch (Exception e){}
+        try{
+            if (sOutput != null) {
+                sOutput.close();
+            }
+        }catch (Exception e){}
+        try{
+            if (socket != null) {
+                socket.close();
+            }
+        }catch (Exception e){}
+    }
+
+
 }
