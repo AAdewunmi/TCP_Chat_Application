@@ -59,4 +59,8 @@ public class Client {
         }
         return true;
     }
+
+    private void display(String message){
+        System.out.println(message);
+    }
 }
