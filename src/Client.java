@@ -63,4 +63,12 @@ public class Client {
     private void display(String message){
         System.out.println(message);
     }
+
+    void sendMessage(ChatMessage message){
+        try{
+            sOutput.writeObject(message);
+        }catch(IOException e){
+            display("Exception writing to server: " + e);
+        }
+    }
 }
