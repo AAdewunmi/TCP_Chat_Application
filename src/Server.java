@@ -198,8 +198,8 @@ public class Server {
                     e2.printStackTrace();
                     break;
                 }
-                String message = cm.getMessage();
-                switch (cm.getType()){
+                String message = cm.message();
+                switch (cm.type()){
                     case ChatMessage.MESSAGE:
                         boolean confirmation = broadcast(username + ": " + message);
                         if (!confirmation) {
