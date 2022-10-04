@@ -55,7 +55,7 @@ public class Client {
             sOutput.writeObject(userName);
         }catch(IOException e){
             display("Exception performing login " + e);
-            disconect();
+            disconnect();
             return false;
         }
         return true;
@@ -152,4 +152,7 @@ public class Client {
 
     }// End of main
 
+    class ListenFromServer extends Thread{
+
+    }
 }
