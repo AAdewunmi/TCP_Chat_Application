@@ -16,6 +16,9 @@ public class Client {
     private String server, username;
     private int port;
 
-
-
+    public Client(String server, String username, int port) {
+        this.server = server;
+        this.username = username;
+        this.port = port;
+    }
 }
