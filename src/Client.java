@@ -6,17 +6,17 @@ import java.util.Scanner;
 
 /**
  * @author Adrian Adewunmi
- * @date 25 Sept 2022
- * @description Client Class
+ * {@code @date} 25 Sept 2022
+ * {@code @description} Client Class
  */
 public class Client {
 
-    private String notif = " *** ";
     private ObjectInputStream sInput;
     private ObjectOutputStream sOutput;
     private Socket socket;
-    private String server, userName;
-    private int port;
+    private final String server;
+    private String userName;
+    private final int port;
 
     public Client(String server, int port, String userName) {
         this.server = server;
@@ -50,7 +50,7 @@ public class Client {
             display("Exception creating new Input/Output Streams: " + e);
             return false;
         }
-        new ListenFromServer.start();
+        new ListenFromServer().start();
         try{
             sOutput.writeObject(userName);
         }catch(IOException e){
@@ -153,6 +153,21 @@ public class Client {
     }// End of main
 
     class ListenFromServer extends Thread{
+
+        public void run(){
+            while(true){
+                try{
+                    String message = (String) sInput.readObject();
+                    System.out.println(message);
+                    System.out.println("> ");
+                }catch(IOException e){
+                    String notif = " *** ";
+                    display(notif + " Server has closed the connection: " + e + notif);
+                    break;
+                }catch(ClassNotFoundException e2){
+                }
+            }
+        }
 
     }
 }
