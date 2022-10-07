@@ -3,14 +3,46 @@
 
 ## What is the project?
 
-This is a GUI based Chat Application built using Java 9, Java Swing and ngrok 
+This is a GUI based Chat Application built using Java 9, Java Swing and Ngrok 
 
 
 ## Tech Stack
 
 - Java 11
 - Swing GUI
-- Port Forwarding System - ngrok
+- Port Forwarding System - Ngrok
+## Ngrok Installation: 
+
+> Get Ngrok API Key:
+
+1. Log into -> 
+
+https://dashboard.ngrok.com/login
+
+(I used my Github account to login.) 
+
+2. Suggested reading -> 
+
+https://ngrok.com/docs/api
+
+
+> Add Ngrok Configuration to IDE (Intellij Community Verson)
+
+(I'm using Intellij for this project.)
+
+1. First of all, install Ngrok plugin in Intellij.
+
+2. Activate plugin using API key (YouTube Video):
+
+https://www.youtube.com/watch?v=eMt29lTPh8I
+
+
+> How to use Ngrok in Intellij:
+
+(Follow Instructions!)
+
+![This is an image](src/demo/ngrok_screenshot.png)
+
 
 ## What is the MVP?
 
