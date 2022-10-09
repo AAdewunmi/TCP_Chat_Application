@@ -94,14 +94,18 @@ public class Client {
 
     public static void main(String[] args) {
 
-        /*int portNumber = 11926;
-        String serverAddress = "2.tcp.ngrok.io";*/
-        int portNumber = 1500;
-        String serverAddress = "localhost";
-        String userName = "Anonymous";
+        // Localhost Connection
+       /* int portNumber = 1500;
+        String serverAddress = "localhost";*/
+
+        // Ngrok Connection
+        int portNumber = 13441;
+        String serverAddress = "8.tcp.ngrok.io";
+
+        // String userName = "Anonymous";
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter User Name: ");
-        userName = scanner.nextLine();
+        String userName = scanner.nextLine();
 
         switch(args.length){
             case 3:
@@ -129,7 +133,7 @@ public class Client {
             return;
         }
 
-        System.out.println("\nHello.! Welcome to the chatroom.");
+        System.out.println("\nHello. " + userName + "! Welcome to the chatroom.");
         System.out.println("Instruction: ");
         System.out.println("1. Simply type the message to send broadcast to all active clients");
         System.out.println("2. Type '@username<space>your message' without quotes to send message to desired client");
