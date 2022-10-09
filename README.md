@@ -6,45 +6,41 @@
 This is a GUI based Chat Application built using Java 9, Java Swing and Ngrok 
 
 
-## Tech Stack
+## Tech Stack:
 
 - Java 11
 - Swing GUI
 - Port Forwarding System - Ngrok
-## Ngrok Installation:
-### This install process is for a local machine, using it's own port. Ngrok will create several instances of a Client but will not use its forwarding service.
 
-> Get Ngrok API Key:
+## Ngrok Installation (Global, OSX):
 
-1. Log into -> 
+1. Installing ngrok on OSX (Read Github Gist below):
 
-https://dashboard.ngrok.com/login
+https://gist.github.com/wosephjeber/aa174fb851dfe87e644e
 
-(I used my Github account to login.) 
+2. Access Ngrok TCP tunnel using Terminal: 
 
-2. Suggested reading -> 
+Run > $ ngrok tcp 1500
 
-https://ngrok.com/docs/api
+> TERMINAL ERROR MESSAGE!
 
+TCP tunnels are only available after you sign up.
+Sign up at: https://dashboard.ngrok.com/signup
 
-> Add Ngrok Configuration to IDE (Intellij Community Verson)
+If you have already signed up, make sure your authtoken is installed.
+Your authtoken is available on your dashboard: https://dashboard.ngrok.com/get-started/your-authtoken 
 
-(I'm using Intellij for this project.)
+Run > $ ngrok authtoken [TOKEN]
 
-1. First of all, install Ngrok plugin in Intellij.
+Re-Run > $ ngrok tcp 1500
 
-2. Activate plugin using API key (YouTube Video):
+![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)
+
+3. Use Ngrok as a service in IDE (Intellij)
+
+(YouTube Video):
 
 https://www.youtube.com/watch?v=eMt29lTPh8I
-
-
-> How to use Ngrok in Intellij:
-
-(Follow Instructions!)
-
-![This is an image](src/demo/ngrok_screenshot.png)
-
-### For this project's next iteration, I will install Ngrok globally to enable our application to use it's forwarding service.
 
 ## What is the MVP?
 
