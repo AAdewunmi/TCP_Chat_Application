@@ -11,7 +11,8 @@ This is a GUI based Chat Application built using Java 9, Java Swing and Ngrok
 - Java 11
 - Swing GUI
 - Port Forwarding System - Ngrok
-## Ngrok Installation: 
+## Ngrok Installation:
+### This install process is for a local machine, using it's own port. Ngrok will create several instances of a Client but will not use its forwarding service.
 
 > Get Ngrok API Key:
 
@@ -43,6 +44,7 @@ https://www.youtube.com/watch?v=eMt29lTPh8I
 
 ![This is an image](src/demo/ngrok_screenshot.png)
 
+### For this project's next iteration, I will install Ngrok globally to enable our application to use it's forwarding service.
 
 ## What is the MVP?
 
