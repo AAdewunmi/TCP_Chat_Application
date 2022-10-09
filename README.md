@@ -34,11 +34,9 @@ Run > $ ngrok authtoken [TOKEN]
 
 Re-Run > $ ngrok tcp 1500
 
-![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)
+![This is an image](src/demo/ngrok_screenshot_1.png)
 
-3. Use Ngrok as a service in IDE (Intellij)
-
-(YouTube Video):
+3. Use Ngrok as a service in Intellij IDE (YouTube Video):
 
 https://www.youtube.com/watch?v=eMt29lTPh8I
 
