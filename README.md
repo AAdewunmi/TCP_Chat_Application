@@ -10,7 +10,9 @@ This is a GUI based Chat Application built using Java 9, Java Swing and Ngrok
 
 - Java 11
 - Swing GUI
-- Port Forwarding System - Ngrok
+- Port Forwarding System - Ngrok 
+
+(https://ngrok.com/docs/getting-started)
 
 ## Ngrok Installation (Global, OSX):
 

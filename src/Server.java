@@ -11,6 +11,7 @@ import java.util.Date;
  * @author Adrian Adewunmi
  * {@code @date} 25 Sept 2022
  * {@code @description} Server Class
+ * Start Ngrok server in terminal $ ngrok tcp 1500
  */
 
 
