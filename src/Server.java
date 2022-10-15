@@ -13,8 +13,6 @@ import java.util.Date;
  * {@code @description} Server Class
  * Start Ngrok server in terminal $ ngrok tcp 1500
  */
-
-
 public class Server {
 
     int uniqueId;

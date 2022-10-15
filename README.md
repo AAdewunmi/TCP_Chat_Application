@@ -3,7 +3,8 @@
 
 ## What is the project?
 
-This is a GUI based Chat Application built using Java 9, Java Swing and Ngrok 
+This is a console-based Chat Application built using Java 9. It includes functionality 
+for exposing a local development server to the internet using "Ngrok". 
 
 
 ## Tech Stack:
