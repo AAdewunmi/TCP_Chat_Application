@@ -1,6 +1,6 @@
 # Project Title: 
 
-A Console-based TCP/IP Chat Messenger Application
+A Console-based TCP/IP Chat Messenger Application.
 
 
 ## 1. Project Description:
@@ -15,7 +15,7 @@ for exposing a local development server to the internet using "Ngrok".
 - Port Forwarding System - Ngrok 
 
 
-## 3. Intall Project:
+## 3. Install Project:
 
 i. Clone the git repo
 
@@ -62,6 +62,21 @@ https://www.youtube.com/watch?v=eMt29lTPh8I
 
 ## 5. How To Use:
 
+i. Run Server Class, then Client Class.
+
+ii. Run Server and *** multiple Client configs on "localhost"/Port Number 1500.
+
+iii. Run Server and *** multiple Client configs on Ngrok-as-a-service (Download plugin) on "localhost"/Port Number 1500.
+
+iv. Run Server and *** multiple Client configs on Multirun-as-a-service (Download plugin) on "localhost"/Port Number 1500.
+
+v. Run Server config on "localhost"/Port 1500, Run multiple *** Client configs using NGROK forwarding service (See commented code in Client and Server Class). Sample Ngrok forwarding address: "x.tcp.ngrok.io", port number XXXXX.
+
+* multiple Client configs: To create multiple clients using Intellij, you need to go to 
+-> Edit Configurations
+-> Click Client
+-> Copy Configuration
+-> Client(1) created. This process can be repeated to create as many clients as required.
 
 
 ## 6. Demo (Chat Screenshot):
