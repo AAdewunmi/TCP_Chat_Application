@@ -95,12 +95,12 @@ public class Client {
     public static void main(String[] args) {
 
         // Localhost Connection
-       /* int portNumber = 1500;
-        String serverAddress = "localhost";*/
+        int portNumber = 1500;
+        String serverAddress = "localhost";
 
         // Ngrok Connection
-        int portNumber = 13441;
-        String serverAddress = "8.tcp.ngrok.io";
+        /*int portNumber = 17964;
+        String serverAddress = "0.tcp.ngrok.io";*/
 
         // String userName = "Anonymous";
         Scanner scanner = new Scanner(System.in);

@@ -134,11 +134,11 @@ public class Server {
 
     public static void main(String[] args) {
        // Local Connection
-        /*int portNumber = 1500;*/
+        int portNumber = 1500;
 
         // Ngrok Connection
-        int portNumber = 1500;
-        /*String serverAddress = "0.tcp.ngrok.io";*/
+        /*int portNumber = 17964;
+        String serverAddress = "0.tcp.ngrok.io";*/
 
         switch (args.length){
             case 1:
