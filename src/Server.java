@@ -25,7 +25,8 @@ public class Server {
     private final String notif = " *** ";
 
     public Server(int port) {
-        this.al = new ArrayList<ClientThread>();
+        // this.al = new ArrayList<ClientThread>();
+        this.al = new ArrayList<>();
         this.sdf = new SimpleDateFormat("HH:mm:ss");
         this.port = port;
     }
