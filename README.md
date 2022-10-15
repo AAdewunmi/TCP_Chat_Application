@@ -1,27 +1,43 @@
-# Project Title: TCP Chat Application
+# Project Title: 
+
+A Console-based TCP/IP Chat Messenger Application
 
 
-## What is the project?
+## 1. Project Description:
 
 This is a console-based Chat Application built using Java 9. It includes functionality 
 for exposing a local development server to the internet using "Ngrok". 
 
 
-## Tech Stack:
+## 2. Tech Stack:
 
 - Java 11
-- Swing GUI
 - Port Forwarding System - Ngrok 
 
-(https://ngrok.com/docs/getting-started)
 
-## Ngrok Installation (Global, OSX):
+## 3. Intall Project:
 
-1. Installing ngrok on OSX (Read Github Gist below):
+i. Clone the git repo
+
+```
+https://github.com/AAdewunmi/TCP_Chat_Application.git
+```
+
+ii. Open project folder
+
+iii. Explore
+
+
+## 4. Register and Install Ngrok (Global, OSX):
+
+
+i. Installing ngrok on OSX (Read Ngrok documentation and Github Gist below):
 
 https://gist.github.com/wosephjeber/aa174fb851dfe87e644e
 
-2. Access Ngrok TCP tunnel using Terminal: 
+(https://ngrok.com/docs/getting-started)
+
+ii. Access Ngrok TCP tunnel using Terminal: 
 
 Run > $ ngrok tcp 1500
 
@@ -39,26 +55,24 @@ Re-Run > $ ngrok tcp 1500
 
 ![This is an image](src/demo/ngrok_screenshot_1.png)
 
-3. Use Ngrok as a service in Intellij IDE (YouTube Video):
+iii. Use Ngrok as a service in Intellij IDE (YouTube Video):
 
 https://www.youtube.com/watch?v=eMt29lTPh8I
 
-## What is the MVP?
 
-The minimal viable product is a client-server application that runs the client(s) GUI and server GUI on screen and they can send messages between each other.
-
-
-## What are the sprinkles (Nice to haves)?
-
-The sprinkles for this project is styling the GUI's as JavaFX GUI's.
+## 5. How To Use:
 
 
-## When will the project be complete?
 
-The project will be complete once all the MVP features have been implemented and the application has been styled.
+## 6. Demo (Chat Screenshot):
 
+![This is an image](src/demo/chat_screenshop.png)
 
-## Adapted from:
+## 7. Contribution:
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## 8. Adapted from:
 
 UDEMY: Java Development Mega Course: Build Projects Practically
 
