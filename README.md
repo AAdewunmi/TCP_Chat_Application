@@ -33,9 +33,10 @@ iii. Explore
 
 i. Installing ngrok on OSX (Read Ngrok documentation and Github Gist below):
 
+https://ngrok.com/docs/getting-started
+
 https://gist.github.com/wosephjeber/aa174fb851dfe87e644e
 
-(https://ngrok.com/docs/getting-started)
 
 ii. Access Ngrok TCP tunnel using Terminal: 
 
